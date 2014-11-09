@@ -5,7 +5,7 @@ import org.apache.commons.lang.StringEscapeUtils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+// test 123
 /**
  * Created by jesperbruun on 16/10/14.
  */
@@ -117,7 +117,7 @@ public class Execute extends Model {
             try {
                 getConnection(false);
                 getConn();
-                String cleanSql = StringEscapeUtils.escapeSql(sql);
+               String cleanSql = StringEscapeUtils.escapeSql(sql);
                 sqlStatement = getConn().prepareStatement(cleanSql);
                 sqlStatement.setString(1, getWhere().getWhereValue());
 
