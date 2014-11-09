@@ -27,7 +27,7 @@ import java.awt.Dimension;
 	import javax.swing.border.MatteBorder;
 	import javax.swing.JTextPane;
 
-
+//Den er fresh guys
 	public class AddCourse extends JPanel {
 		private JTable table;
 		private final JButton btnAdd = new JButton("Add");
