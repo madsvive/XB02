@@ -10,11 +10,11 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 public class Configurations {
-    private String host = "localhost";
-    private String port = "80";
-    private String username = "root";
-    private String dbname = "cbscalendar";
-    private String password = "";
+    private String host;
+    private String port;
+    private String username;
+    private String dbname;
+    private String password;
 
     // FFkey is used in Encryption.java
     private String ffcryptkey;
@@ -30,7 +30,8 @@ public class Configurations {
 
 
     public String getHost() {
-        return host;
+        ReadFile();
+    	return host;
     }
 
     public void setHost(String host) {
@@ -38,7 +39,8 @@ public class Configurations {
     }
 
     public String getPort() {
-        return port;
+    	ReadFile();
+    	return port;
     }
 
     public void setPort(String port) {
@@ -46,7 +48,8 @@ public class Configurations {
     }
 
     public String getUsername() {
-        return username;
+    	ReadFile();
+    	return username;
     }
 
     public void setUsername(String username) {
@@ -54,7 +57,8 @@ public class Configurations {
     }
 
     public String getPassword() {
-        return password;
+    	ReadFile();
+    	return password;
     }
 
     public void setPassword(String password) {
@@ -62,7 +66,8 @@ public class Configurations {
     }
 
     public String getDbname() {
-        return dbname;
+    	ReadFile();
+    	return dbname;
     }
 
     public void setDbname(String dbname) {
@@ -70,7 +75,8 @@ public class Configurations {
     }
 
     public String getFfcryptkey() {
-        return ffcryptkey;
+    	ReadFile();
+    	return ffcryptkey;
     }
 
     public void setFfcryptkey(String ffcryptkey) {
@@ -81,7 +87,8 @@ public class Configurations {
 // Weather settrs and getters.
 
     public String getWeather_expiration_time() {
-        return weather_expiration_time;
+    	ReadFile();
+    	return weather_expiration_time;
     }
 
     public void setWeather_expiration_time(String weather_expiration_time) {
@@ -90,7 +97,8 @@ public class Configurations {
 
 
     public String getWeather_lat() {
-        return weather_lat;
+    	ReadFile();
+    	return weather_lat;
     }
 
     public void setWeather_lat(String weather_lat) {
@@ -99,7 +107,8 @@ public class Configurations {
 
 
     public String getWeather_lon() {
-        return weather_lon;
+    	ReadFile();
+    	return weather_lon;
     }
 
     public void setWeather_lon(String weather_lon) {
@@ -107,7 +116,8 @@ public class Configurations {
     }
 
     public String getWeather_future_in_days() {
-        return weather_future_in_days;
+    	ReadFile();
+    	return weather_future_in_days;
     }
 
     public void setWeather_future_in_days(String weather_future_in_days) {
