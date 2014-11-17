@@ -47,11 +47,9 @@ public class UserList extends JPanel {
  
 
 
-        	Object[][] data = {
-        		
-        };
-        
-	
+        	Object[][] data = new Object [200][200];
+
+     
     
         try {
 			QueryBuilder qb = new QueryBuilder();

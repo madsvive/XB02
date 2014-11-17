@@ -18,7 +18,7 @@ public class CreateCalendar implements java.io.Serializable
 	public String getCalenderName() {
 		return calenderName;
 	}
-	public void setCalenderName(String calenderName) {
+	public void setCalendarName(String calenderName) {
 		this.calenderName = calenderName;
 	}
 	public String getUserName() {

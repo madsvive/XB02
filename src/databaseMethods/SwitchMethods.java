@@ -27,7 +27,7 @@ public class SwitchMethods extends Model
 		testConnection();
 		if(authenticateNewCalender(calenderName) == false)
 		{
-			addNewCalender(calenderName, userName, privatePublic);
+			addNewCalendar(calenderName, userName, privatePublic);
 			stringToBeReturned = "The new calender has been created!";
 		}
 		else
@@ -54,11 +54,11 @@ public class SwitchMethods extends Model
 		return authenticate;
 	}
 	
-	public void addNewCalender (String newCalenderName, String userName, int publicOrPrivate) throws SQLException
+	public void addNewCalendar (String newCalendarName, String userName, int publicOrPrivate) throws SQLException
 	{
 		String [] keys = {"Name","active","CreatedBy","PrivatePublic"};
-		String [] values = {newCalenderName,"1",userName, Integer.toString(publicOrPrivate)};
-		qb.update("calendar", keys, values).all().Execute();
+		String [] values = {newCalendarName,"1",userName, Integer.toString(publicOrPrivate)};
+		qb.insertInto("calendar", keys).values(values).Execute(); // Ændret
 		
 //		doUpdate("insert into test.calender (Name, Active, CreatedBy, PrivatePublic) VALUES ('"+newCalenderName+"', '1', '"+userName+"', '"+publicOrPrivate+"');");
 	}

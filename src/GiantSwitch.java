@@ -64,7 +64,7 @@ public class GiantSwitch {
 		case "deleteCalender":
 			DeleteCalendar DC = (DeleteCalendar)gson.fromJson(jsonString, DeleteCalendar.class);
 			System.out.println(DC.getCalenderName()+ "Den har lagt det nye ind i klassen");
-			answer = SW.deleteCalender(DC.getUserName(), DC.getCalenderName());
+			answer = SW.deleteCalender(DC.getUserName(), DC.getCalenderName()); //ændre til calendar med A.
 			break;
 		
 		case "saveImportedCalender":
