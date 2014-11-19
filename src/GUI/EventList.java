@@ -128,6 +128,7 @@ import java.awt.event.ActionEvent;
 		}
 		
 		public void addActionListener(ActionListener l) {
+// Programmet kan ikke køres lige nu hvis disse ikke forbliver udkommenteret, prøv evt. et fix, men sync ikke så du/i ikke smadre vor resten.
 //			btnAdd.addActionListener(l);
 //			btnDelete.addActionListener(l);
 //			btnLogout.addActionListener(l);
