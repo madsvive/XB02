@@ -10,6 +10,8 @@ import java.awt.CardLayout;
 
 public class Screen extends JFrame {
 
+// EXIT_ON_CLOSE er ændret til HIDE_ON_CLOSE ..
+	
 	public static final String LOGIN = "name_276091497157488";
 	public static final String MAINMENU = "name_276416022878030";
 	public static final String USERINFO = "name_277892826656058";
@@ -35,7 +37,6 @@ public class Screen extends JFrame {
 	public Screen() {
 		setTitle("Doek4life");
 		setResizable(false);
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1366, 768);
 		
 		JPanel contentPane = (JPanel) this.getContentPane();
