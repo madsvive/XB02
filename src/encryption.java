@@ -10,7 +10,6 @@ public class encryption {
 		Configurations CF = new Configurations();
 //		Defines the decryption value of the byte
 		//The 4 lines below needs to work later on, but for now, it will be hardcode
-		//System.out.println(CF.getFfcryptkey());
 		System.out.println(CF.getFfcryptkey());
 		String crypKey = CF.getFfcryptkey();
 		System.out.println(crypKey);

@@ -10,7 +10,7 @@ class TCPServer {
 
 	public TCPServer() {
 		try {
-			AdminWorker admin = new AdminWorker();
+			//AdminWorker admin = new AdminWorker();
 			// Creates a socket to send and recieve messages in port 8888
 			ServerSocket welcomeSocket = new ServerSocket(8888);
 
