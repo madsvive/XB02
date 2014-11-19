@@ -105,11 +105,11 @@ public class UserList extends JPanel {
         btnAdd.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent arg0) {
 
-          String firstName = JOptionPane.showInputDialog(null, "UserID", null);
-          String lastName = JOptionPane.showInputDialog(null, "Email", null);
-          String eMail = JOptionPane.showInputDialog(null, "Date", null);
-          String password = JOptionPane.showInputDialog(null, "Write your password", null);
-          
+//          String firstName = JOptionPane.showInputDialog(null, "UserID", null);
+//          String lastName = JOptionPane.showInputDialog(null, "Email", null);
+//          String eMail = JOptionPane.showInputDialog(null, "Date", null);
+//          String password = JOptionPane.showInputDialog(null, "Write your password", null);
+//          
         	}
         });
         
@@ -237,6 +237,7 @@ public class UserList extends JPanel {
 	}
 
 	public JButton getBtnMainMenu() {
+		
 		return btnMainMenu;
 	}
 
