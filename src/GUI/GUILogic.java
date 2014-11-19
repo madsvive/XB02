@@ -201,7 +201,7 @@ public class GUILogic {
 			if (e.getSource() == screen.getUserList().getBtnLogout()){
 				screen.show(Screen.LOGIN);
 			}
-			if (e.getSource() == screen.getUserList().getBtnAdd()){
+			if (e.getSource() == screen.getUserList().getButtontAdd()){
 				screen.show(Screen.ADDUSER);
 			
 			}

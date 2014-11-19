@@ -30,7 +30,7 @@ public class UserList extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private static final ActionListener ActionListener = null;
 	private boolean DEBUG = false;
-	private JButton btnAdd;
+	private JButton buttonAdd;
 	private JButton btnDelete;
 	private JButton btnLogout;
 	private JButton btnMainMenu;
@@ -98,24 +98,6 @@ public class UserList extends JPanel {
         //Add the scroll pane to this panel.
         add(scrollPane);
         
-        JButton btnAdd = new JButton("Add");
-        btnAdd.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
-        btnAdd.setForeground(new Color(0, 0, 205));
-        btnAdd.setOpaque(true);
-//        btnAdd.addActionListener(new ActionListener() {
-//        	public void actionPerformed(ActionEvent arg0) {
-//
-////          String firstName = JOptionPane.showInputDialog(null, "UserID", null);
-////          String lastName = JOptionPane.showInputDialog(null, "Email", null);
-////          String eMail = JOptionPane.showInputDialog(null, "Date", null);
-////          String password = JOptionPane.showInputDialog(null, "Write your password", null);
-////          
-//        	}
-//        });
-        
-        btnAdd.setBounds(1019, 556, 118, 29);
-        add(btnAdd);
-        
         JButton btnLogout = new JButton("Log out");
         btnLogout.setForeground(Color.WHITE);
         btnLogout.setFont(new Font("Arial", Font.BOLD, 30));
@@ -129,6 +111,17 @@ public class UserList extends JPanel {
         	public void actionPerformed(ActionEvent arg0) {
         	}
         });
+        
+        JButton buttonAdd = new JButton("Add");
+        buttonAdd.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        	}
+        });
+        buttonAdd.setOpaque(true);
+        buttonAdd.setForeground(new Color(0, 0, 205));
+        buttonAdd.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
+        buttonAdd.setBounds(1019, 557, 118, 29);
+        add(buttonAdd);
         btnMainMenu.setForeground(Color.WHITE);
         btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
         btnMainMenu.setContentAreaFilled(false);
@@ -206,7 +199,7 @@ public class UserList extends JPanel {
  
  
     	public void addActionListener(ActionListener l) {
-		btnAdd.addActionListener(l);
+		buttonAdd.addActionListener(l);
 		btnDelete.addActionListener(l);
 		btnLogout.addActionListener(l);
 		btnMainMenu.addActionListener(l);
@@ -217,8 +210,8 @@ public class UserList extends JPanel {
 		return ActionListener;
 	}
 
-	public JButton getBtnAdd() {
-		return btnAdd;
+	public JButton getButtontAdd() {
+		return buttonAdd;
 	}
 
 	public JButton getBtnDelete() {
@@ -233,5 +226,4 @@ public class UserList extends JPanel {
 	public JButton getBtnLogout() {
 		return btnLogout;
 	}
-	
 }
