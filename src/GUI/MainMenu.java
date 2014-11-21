@@ -18,6 +18,7 @@ public class MainMenu extends JPanel {
 	private JLabel lblMainMenu;
 	private JButton btnLogOut;
 	private JButton btnUserlist;
+	private JButton btnUserlist_1;
 	private JButton btnEventlist;
 	private JButton btnNotelist;
 	private JLabel lblCBSlogo;
@@ -36,17 +37,18 @@ public class MainMenu extends JPanel {
 		
 		btnUserlist = new JButton("Userlist");
 		btnUserlist.setContentAreaFilled(false);
-		btnUserlist = new JButton("User-list");
-		btnUserlist.addActionListener(new ActionListener() {
+		btnUserlist_1 = new JButton("User-list");
+		btnUserlist_1.setContentAreaFilled(false);
+		btnUserlist_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnUserlist.setForeground(Color.WHITE);
-		btnUserlist.setFont(new Font("Arial", Font.BOLD, 30));
-		btnUserlist.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-		btnUserlist.setBackground(Color.WHITE);
-		btnUserlist.setBounds(610, 330, 145, 50);
-		add(btnUserlist);
+		btnUserlist_1.setForeground(Color.WHITE);
+		btnUserlist_1.setFont(new Font("Arial", Font.BOLD, 30));
+		btnUserlist_1.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+		btnUserlist_1.setBackground(Color.WHITE);
+		btnUserlist_1.setBounds(610, 330, 145, 50);
+		add(btnUserlist_1);
 		
 		btnEventlist = new JButton("Eventlist");
 		btnEventlist.setContentAreaFilled(false);
@@ -90,12 +92,12 @@ public class MainMenu extends JPanel {
 		btnLogOut.addActionListener(l);
 		btnEventlist.addActionListener(l);
 		btnNotelist.addActionListener(l);
-		btnUserlist.addActionListener(l);
+		btnUserlist_1.addActionListener(l);
 		
 		
 	}
 	public JButton getBtnUserlist() {
-		return btnUserlist;
+		return btnUserlist_1;
 	}
 	public JButton getBtnEventlist() {
 		return btnEventlist;
