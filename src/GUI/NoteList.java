@@ -56,8 +56,8 @@ public class NoteList extends JPanel {
 				data[count][1] = rs.getString("eventId");
 				data[count][2] = rs.getString("dateTime");
 				data[count][3] = rs.getString("noteId");
-//				data[count][4] = rs.getString("createdBy"); Er lavet i databasen men skal også tilpasses i GUI
-//				data[count][5] = rs.getString("active"); Er lavet i databasen men skal også tilpasses i GUI
+//				data[count][4] = rs.getString("createdBy"); Er lavet i databasen men skal ogsï¿½ tilpasses i GUI
+//				data[count][5] = rs.getString("active"); Er lavet i databasen men skal ogsï¿½ tilpasses i GUI
 
 				count++;
 			}
@@ -118,7 +118,7 @@ public class NoteList extends JPanel {
 				new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255),
 						new Color(0, 0, 0), new Color(255, 255, 255),
 						new Color(0, 0, 0))));
-		btnMainMenu.setBounds(601, 553, 163, 43);
+		btnMainMenu.setBounds(601, 572, 163, 43);
 		add(btnMainMenu);
 
 		btnLogout = new JButton("Log out");
