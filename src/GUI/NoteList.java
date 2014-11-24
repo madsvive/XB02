@@ -41,7 +41,7 @@ public class NoteList extends JPanel {
 		setSize(new Dimension(1366, 768));
 		setLayout(null);
 
-		// Laver tabellen inde i Eventlisten.
+		// Laver tabellen inde i Notelist.
 		String[] columnNames = { "Note", "Event", "Date", "Note ID" };
 
 		Object[][] data = new Object[200][200];

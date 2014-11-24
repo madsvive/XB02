@@ -24,8 +24,13 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.JTextPane;
+
+import model.QueryBuild.QueryBuilder;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 public class EventList extends JPanel {
 
@@ -42,6 +47,30 @@ public class EventList extends JPanel {
 		setSize(new Dimension(1366, 768));
 		setLayout(null);
 
+		// Laver tabellen inde i Eventlisten.
+		String[] columnNames = { "Event", "Location", "Start Date", "End date", "Event ID", "Created By" };
+
+		Object[][] data = new Object[200][200];
+
+		try {
+			QueryBuilder qb = new QueryBuilder();
+			ResultSet rs = qb.selectFrom("events").all().ExecuteQuery();
+
+			int count = 0;
+			while (rs.next()) {
+				data[count][0] = rs.getString("name");
+				data[count][1] = rs.getString("location");
+				data[count][2] = rs.getString("start");
+				data[count][3] = rs.getString("end");
+				data[count][4] = rs.getString("eventId");
+				data[count][5] = rs.getString("createdBy");
+
+				count++;
+			}
+		} catch (SQLException e1) {
+			e1.printStackTrace();
+		}
+
 		JLabel lblEvents = new JLabel("Eventlist");
 		lblEvents.setForeground(Color.WHITE);
 		lblEvents.setFont(new Font("Arial", Font.BOLD, 78));
@@ -55,20 +84,20 @@ public class EventList extends JPanel {
 		add(lblUpcomingEvent);
 
 		// Laver tabellen inde i Eventlisten.
-		String[] columnNames = { "Event", "Date", "Note", "" };
-
-		Object[][] data = {
-
-				{ "DØK Julefrokost", "11.11.2022", "Game on!",
-						new Boolean(false) },
-				{ "DØK Julefrokost", "11.11.2022", "Game on!",
-						new Boolean(true) },
-				{ "DØK Julefrokost", "11.11.2022", "Game on!",
-						new Boolean(false) },
-				{ "DØK Julefrokost", "11.11.2022", "Game on!",
-						new Boolean(true) },
-				{ "DØK Julefrokost", "11.11.2022", "Game on!",
-						new Boolean(false) } };
+//		String[] columnNames = { "Event", "Date", "Note", "" };
+//
+//		Object[][] data = {
+//
+//				{ "DØK Julefrokost", "11.11.2022", "Game on!",
+//						new Boolean(false) },
+//				{ "DØK Julefrokost", "11.11.2022", "Game on!",
+//						new Boolean(true) },
+//				{ "DØK Julefrokost", "11.11.2022", "Game on!",
+//						new Boolean(false) },
+//				{ "DØK Julefrokost", "11.11.2022", "Game on!",
+//						new Boolean(true) },
+//				{ "DØK Julefrokost", "11.11.2022", "Game on!",
+//						new Boolean(false) } };
 
 		final JTable table = new JTable(data, columnNames);
 		table.setSurrendersFocusOnKeystroke(true);
