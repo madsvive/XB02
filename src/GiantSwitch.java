@@ -2,6 +2,7 @@ import java.sql.SQLException;
 
 import model.QOTD.QOTDModel;
 import model.calendar.Event;
+import model.calendar.GetCalendarData;
 import model.note.Note;
 import JsonClasses.AuthUser;
 import JsonClasses.CalendarInfo;
@@ -34,10 +35,16 @@ public class GiantSwitch {
 		/************
 		 ** COURSES **
 		 ************/
-
+		//Import calendar henter cbskalendar til det gældene username. 
 		case "importCalendar":
-			System.out.println("Recieved importCourse");
-			break;
+			try {
+				GetCalendarData importCalendar = new GetCalendarData();
+			System.out.println("Recieved calendar from cbscalendar");
+			} catch (Exception e1){
+			System.out.println("Can't importcalender");
+			System.out.println(e1);
+			}
+			break;	
 
 		/**********
 		 ** LOGIN **
@@ -78,6 +85,7 @@ public class GiantSwitch {
 			break;
 			
 		case "getCalendar":
+			
 			System.out.println("Recieved getCalendar");
 			break;
 
