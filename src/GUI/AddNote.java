@@ -13,8 +13,10 @@ import javax.swing.DropMode;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.JEditorPane;
+import javax.swing.JFormattedTextField;
 
 public class AddNote extends JPanel {
+	private JTextField textField;
 
 	/**
 	 * Create the panel.
@@ -38,7 +40,7 @@ public class AddNote extends JPanel {
         lblNote.setForeground(Color.WHITE);
         lblNote.setFont(new Font("Arial", Font.BOLD, 30));
         lblNote.setHorizontalAlignment(SwingConstants.CENTER);
-        lblNote.setBounds(484, 380, 106, 34);
+        lblNote.setBounds(511, 379, 106, 34);
         add(lblNote);
         
         JLabel lblEvent = new JLabel("EventID:");
@@ -49,8 +51,13 @@ public class AddNote extends JPanel {
         add(lblEvent);
         
         JEditorPane editorPane = new JEditorPane();
-        editorPane.setBounds(600, 380, 325, 91);
+        editorPane.setBounds(616, 389, 325, 135);
         add(editorPane);
+        
+        textField = new JTextField();
+        textField.setBounds(618, 314, 236, 39);
+        add(textField);
+        textField.setColumns(10);
 		
         JLabel lblBackground = new JLabel("Background");
         lblBackground.setIcon(new ImageIcon(UserList.class.getResource("/Images/MetalBackground.jpg")));
