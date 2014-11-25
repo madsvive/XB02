@@ -96,6 +96,7 @@ public class AddUser extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 			//Submit changes to databases
 			//hvad sker der n�r �ndringer ved en bruger submittes
+			// SKAL VI IKKE BARE SLETTE DISSE KOMMENTARER - AKAN
 			}
 		}
 		);
