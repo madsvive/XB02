@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS users
 	userid int NOT NULL AUTO_INCREMENT,
 	email varchar(40) NOT NULL,
 	active boolean,
-	created datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	created datetime NOT NULL DEFAULT CURRENT_TIMESTAMP(),
 	password varchar(200) NOT NULL,
 	PRIMARY KEY (userid)
 );
