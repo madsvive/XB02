@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS notes
 CREATE TABLE IF NOT EXISTS roles
 (
 	roleid int NOT NULL AUTO_INCREMENT,
-	userid int NOT NULL,
+	userid int NOT NULL AUTO_INCREMENT,
 	type varchar(200) NOT NULL,
 	PRIMARY KEY (roleid)
 );

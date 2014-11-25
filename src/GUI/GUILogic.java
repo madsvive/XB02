@@ -151,19 +151,13 @@ public class GUILogic {
 				
 				String[] kolonner = {"email", "password"};
 				String[] Values = { Email, Password};
-<<<<<<< HEAD
+
 				String[] kolonner2 = {"type"};
 				String[] Values2 = {Type};
 				try {
 					qb.insertInto("users", kolonner).values(Values).Execute();
 					qb.insertInto("roles", kolonner2).values(Values2).Execute();
-=======
-				String[] kolonner2 = { "type"};
-				String[] Values2 = { Type};
-				try {
-					qb.insertInto("users", kolonner ).values(Values).Execute();
-					qb.insertInto("roles", kolonner2 ).values(Values2).Execute();
->>>>>>> origin/master
+
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
