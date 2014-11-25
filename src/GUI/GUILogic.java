@@ -3,6 +3,7 @@ package GUI;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 import GUI.UserInformation;
 import GUI.AuthUser;
@@ -208,7 +209,15 @@ public class GUILogic {
 			
 			}
 			if (e.getSource() == screen.getUserList().getBtnDelete()){
-				
+				QueryBuilder qb = new QueryBuilder();
+				String inputvalue = JOptionPane.showInputDialog("Write the user email you want to delete");
+				try {
+					qb.deleteFrom("users").where("email","=",inputvalue).Execute();
+					System.out.println("User deleted");
+				} catch (SQLException e1) {
+					System.out.println("User not deleted");
+					e1.printStackTrace();
+				}
 			}
 
 		}
