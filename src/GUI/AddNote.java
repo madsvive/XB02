@@ -6,7 +6,10 @@ import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 import java.awt.Font;
+import java.awt.event.ActionListener;
+
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.DropMode;
@@ -14,13 +17,22 @@ import javax.swing.JTextArea;
 import javax.swing.JTextPane;
 import javax.swing.JEditorPane;
 import javax.swing.JFormattedTextField;
+import javax.swing.JButton;
+import javax.swing.border.MatteBorder;
+
+import java.awt.event.ActionEvent;
 
 public class AddNote extends JPanel {
 	private JTextField textField;
-
-	/**
-	 * Create the panel.
-	 */
+	private JEditorPane Notefield;
+	private JLabel lblBackground;
+	private JLabel lblAddNote;
+	private JLabel lblCBSlogo;
+	private JLabel lblNote;
+	private JLabel lblEvent;
+	private JButton btnAdd;
+	
+	
 	public AddNote() {
 		setLayout(null);
 		setSize(new Dimension(1366, 768));
@@ -50,14 +62,26 @@ public class AddNote extends JPanel {
         lblEvent.setBounds(484, 315, 122, 36);
         add(lblEvent);
         
-        JEditorPane editorPane = new JEditorPane();
-        editorPane.setBounds(616, 389, 325, 135);
-        add(editorPane);
+        JEditorPane Notefield = new JEditorPane();
+        Notefield.setBounds(616, 389, 325, 135);
+        add(Notefield);
         
         textField = new JTextField();
         textField.setBounds(618, 314, 236, 39);
         add(textField);
         textField.setColumns(10);
+        
+        JButton btnAdd = new JButton("Add");
+        btnAdd.setOpaque(true);
+        btnAdd.setForeground(new Color(0, 0, 205));
+        btnAdd.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
+        btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+        btnAdd.setBounds(975, 495, 118, 29);
+        add(btnAdd);
+        
 		
         JLabel lblBackground = new JLabel("Background");
         lblBackground.setIcon(new ImageIcon(UserList.class.getResource("/Images/MetalBackground.jpg")));
@@ -68,7 +92,17 @@ public class AddNote extends JPanel {
         add(lblBackground);
         
 
-
-        
 	}
-}
+
+	public void addActionListener(ActionListener l) {
+		btnAdd.addActionListener(l);
+		}
+
+	public JButton getBtnAdd() {
+		return btnAdd;
+	}
+
+	public JEditorPane getNotefield() {
+		return Notefield;
+	}   
+	}
