@@ -1,4 +1,5 @@
 import java.sql.SQLException;
+import java.sql.Savepoint;
 
 import model.QOTD.QOTDModel;
 import model.calendar.Event;
@@ -76,22 +77,34 @@ public class GiantSwitch {
 		case "deleteCalendar":
 			DeleteCalendar DC = (DeleteCalendar)gson.fromJson(jsonString, DeleteCalendar.class);
 			System.out.println(DC.getCalendarName()+ "Den har lagt det nye ind i klassen");
-			answer = SW.deleteCalendar(DC.getUserName(), DC.getCalendarName()); //ændre til calendar med A.
+			answer = SW.deleteCalendar(DC.getUserName(), DC.getCalendarName()); 
 			break;
 		
 		case "saveImportedCalendar":
-			
-			
+			SaveImportedCalendar SIC = (SaveImportedCalendar)gson.fromJson(jsonString, SaveimportedCalendar.class);
+			System.out.println(SIC.getCalendarName() + "Den nye kalender er nu succesfuldt blevet gemt");
+			answer = SW.SaveImportedCalendar(SIC.getUserName(), SIC.getCalendarName());				
 			break;
+			//Klasse ikke oprettet.
+			
 			
 		case "getCalendar":
-			
-			System.out.println("Recieved getCalendar");
+			GetCalendar GC = (GetCalendar)gson.fromJson(jsonString, GetCalendar.class);
+			System.out.println(GC.getCalendarName() + "Den nye kalender er nu hentet");
+			answer = SW.GetCalendar(GC.getUserName(), GC.getCalendarName());
+			//			System.out.println("Recieved getCalendar");
 			break;
+			//Klasse ikke oprettet.
+			
 
 		case "getEvents":
-			System.out.println("Recieved getEvents");
+			GetEvents GE = (GetEvents)gson.fromJson(jsonString, GetEvent.class);
+			System.out.println(GE.getCalendarName() + "Det nye event er nu hentet");
+			answer = SW.GetEvent(GC.getUserName(), GC.getCalendarName());
+//			System.out.println("Recieved getEvents");
 			break;
+			//Klasse ikke oprettet.
+			
 
 		case "createEvent":
 			System.out.println("Recieved saveEvent");
