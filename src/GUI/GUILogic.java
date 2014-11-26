@@ -198,6 +198,7 @@ public class GUILogic {
 	private class UserListActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			
+			
 			if (e.getSource() == screen.getUserList().getBtnMainMenu()){
 				screen.show(Screen.MAINMENU);
 			}
@@ -210,10 +211,11 @@ public class GUILogic {
 			}
 			if (e.getSource() == screen.getUserList().getBtnDelete()){
 				QueryBuilder qb = new QueryBuilder();
-				String inputvalue = JOptionPane.showInputDialog("Write the user email you want to delete");
+				String h = (String) screen.getUserList().getTable().getValueAt(screen.getUserList().getTable().getSelectedRow(), 0);
+//				String inputvalue = JOptionPane.showInputDialog("Write the user email you want to delete");
 				try {
-					qb.deleteFrom("users").where("email","=",inputvalue).Execute();
-					System.out.println("User deleted");
+					qb.deleteFrom("users").where("userid","=",h).Execute();
+					System.out.println("User deleted with id " + h);
 				} catch (SQLException e1) {
 					System.out.println("User not deleted");
 					e1.printStackTrace();

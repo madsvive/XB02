@@ -35,6 +35,7 @@ public class UserList extends JPanel {
 	private JButton btnLogout;
 	private JButton btnMainMenu;
 	private ResultSet rs;
+	final JTable table;
 	
     public UserList() {
     	setSize(new Dimension(1366, 768));
@@ -57,6 +58,7 @@ public class UserList extends JPanel {
 			
 	        int count = 0;
 	        while (rs.next()) {
+	        	if (rs.getString("active").equals("1")){
 	        	data[count][0] = rs.getString("userid");
 	        	data[count][1] = rs.getString("email");
 	        	data[count][2] = rs.getString("active");
@@ -64,13 +66,14 @@ public class UserList extends JPanel {
 	        	data[count][4] = rs.getString("password");
 
 	        	count++;
+	        	}
 	        }
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
 
  
-        final JTable table = new JTable(data, columnNames);
+        table = new JTable(data, columnNames);
         table.setPreferredScrollableViewportSize(new Dimension(500, 70));
         table.setFillsViewportHeight(true);
         table.setRowSelectionAllowed(true);
@@ -225,5 +228,9 @@ public class UserList extends JPanel {
 
 	public JButton getBtnLogout() {
 		return btnLogout;
+	}
+	
+	public JTable getTable() {
+		return table;
 	}
 }
