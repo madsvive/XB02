@@ -241,7 +241,7 @@ public class GUILogic {
 //				String inputvalue = JOptionPane.showInputDialog("Write the user email you want to delete");
 				try {
 					qb.deleteFrom("users").where("userid","=",h).Execute();
-					System.out.println("User deleted with id " + h);
+					System.out.println("User deleted with UserID " + h);
 				} catch (SQLException e1) {
 					System.out.println("User not deleted");
 					e1.printStackTrace();

@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS notes
 CREATE TABLE IF NOT EXISTS roles
 (
 	roleid int NOT NULL AUTO_INCREMENT,
-	userid int NOT NULL AUTO_INCREMENT,
+	userid int NOT NULL,
 	type varchar(200) NOT NULL,
 	PRIMARY KEY (roleid)
 );
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS users
 (
 	userid int NOT NULL AUTO_INCREMENT,
 	email varchar(40) NOT NULL,
-	active boolean NOT NULL DEFUALT '1',
+	active boolean NOT NULL DEFAULT '1',
 	created datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
 	password varchar(200) NOT NULL,
 	PRIMARY KEY (userid)
@@ -258,7 +258,7 @@ CREATE TABLE IF NOT EXISTS users
 (
 	userid int NOT NULL AUTO_INCREMENT,
 	email varchar(40) NOT NULL,
-	active boolean,
+	active boolean NOT NULL DEFAULT '1',
 	created datetime,
 	password varchar(200) NOT NULL,
 	PRIMARY KEY (userid)

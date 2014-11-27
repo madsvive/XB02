@@ -70,19 +70,19 @@ public class GiantSwitch {
 		 *************/
 		case "createCalendar":
 			CreateCalendar CC = (CreateCalendar)gson.fromJson(jsonString, CreateCalendar.class);
-			System.out.println(CC.getCalendarName()+ "Den har lagt det nye ind i klassen");
+			System.out.println(CC.getCalendarName()+ "has now been added to the class");
 			answer = SW.createNewCalendar(CC.getUserName(), CC.getCalendarName(), CC.getPublicOrPrivate());
 			break;
 		
 		case "deleteCalendar":
 			DeleteCalendar DC = (DeleteCalendar)gson.fromJson(jsonString, DeleteCalendar.class);
-			System.out.println(DC.getCalendarName()+ "Den har lagt det nye ind i klassen");
+			System.out.println(DC.getCalendarName()+ "has now been added to the class");
 			answer = SW.deleteCalendar(DC.getUserName(), DC.getCalendarName()); 
 			break;
 		
 		case "saveImportedCalendar":
 			SaveImportedCalendar SIC = (SaveImportedCalendar)gson.fromJson(jsonString, SaveimportedCalendar.class);
-			System.out.println(SIC.getCalendarName() + "Den nye kalender er nu succesfuldt blevet gemt");
+			System.out.println(SIC.getCalendarName() + "the new calendar has been saved");
 			answer = SW.SaveImportedCalendar(SIC.getUserName(), SIC.getCalendarName());				
 			break;
 			//Klasse ikke oprettet.
@@ -90,18 +90,16 @@ public class GiantSwitch {
 			
 		case "getCalendar":
 			GetCalendar GC = (GetCalendar)gson.fromJson(jsonString, GetCalendar.class);
-			System.out.println(GC.getCalendarName() + "Den nye kalender er nu hentet");
+			System.out.println(GC.getCalendarName() + "the new calendar is now imported");
 			answer = SW.GetCalendar(GC.getUserName(), GC.getCalendarName());
-			//			System.out.println("Recieved getCalendar");
 			break;
 			//Klasse ikke oprettet.
 			
 
 		case "getEvents":
 			GetEvents GE = (GetEvents)gson.fromJson(jsonString, GetEvent.class);
-			System.out.println(GE.getCalendarName() + "Det nye event er nu hentet");
+			System.out.println(GE.getCalendarName() + "the new event is now imported");
 			answer = SW.GetEvent(GC.getUserName(), GC.getCalendarName());
-//			System.out.println("Recieved getEvents");
 			break;
 			//Klasse ikke oprettet.
 			
@@ -110,6 +108,8 @@ public class GiantSwitch {
 			System.out.println("Recieved saveEvent");
 			break;
 
+			
+			
 		case "getEventInfo":
 			System.out.println("Recieved getEventInfo");
 			break;
