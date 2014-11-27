@@ -41,9 +41,7 @@ CREATE TABLE IF NOT EXISTS events
 	end datetime NOT NULL,
 	name varchar(0) NOT NULL,
 	text text NOT NULL,
-	boolean active NOT NULL DEFAULT '1',
-	-- Decides wether the event is an import-event or user created
-	-- 
+	active boolean NOT NULL DEFAULT '1',
 	customevent boolean COMMENT 'Decides wether the event is an import-event or user created
 ',
 	CalendarID int NOT NULL,
