@@ -42,13 +42,14 @@ public class EventList extends JPanel {
 	private JButton btnDelete;
 	private JButton btnLogout;
 	private JButton btnMainMenu;
+	private JTable table;
 
 	public EventList() {
 		setSize(new Dimension(1366, 768));
 		setLayout(null);
 
 		// Laver tabellen inde i Eventlisten.
-		String[] columnNames = { "Event", "Location", "Start Date", "End date", "Event ID", "Created By" };
+		String[] columnNames = { "EventID", "Name", "Start Date", "End date", "Location", "Created By", "Text", "active"};
 
 		Object[][] data = new Object[200][200];
 
@@ -58,15 +59,20 @@ public class EventList extends JPanel {
 
 			int count = 0;
 			while (rs.next()) {
-				data[count][0] = rs.getString("name");
-				data[count][1] = rs.getString("location");
+				if (rs.getString("active").equals("1")){
+				data[count][0] = rs.getString("eventId");
+				data[count][1] = rs.getString("name");
 				data[count][2] = rs.getString("start");
 				data[count][3] = rs.getString("end");
-				data[count][4] = rs.getString("eventId");
+				data[count][4] = rs.getString("location");
 				data[count][5] = rs.getString("createdBy");
+				data[count][6] = rs.getString("text");
+				data[count][7] = rs.getString("active");
+				
 
 				count++;
 			}
+			}	
 		} catch (SQLException e1) {
 			e1.printStackTrace();
 		}
@@ -99,7 +105,7 @@ public class EventList extends JPanel {
 //				{ "DØK Julefrokost", "11.11.2022", "Game on!",
 //						new Boolean(false) } };
 
-		final JTable table = new JTable(data, columnNames);
+		table = new JTable(data, columnNames);
 		table.setSurrendersFocusOnKeystroke(true);
 		table.setPreferredScrollableViewportSize(new Dimension(500, 100));
 		table.setFillsViewportHeight(true);
@@ -155,6 +161,10 @@ public class EventList extends JPanel {
 		add(btnDelete);
 
 		btnAdd = new JButton("Add");
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnAdd.setOpaque(true);
 		btnAdd.setForeground(new Color(0, 0, 205));
 		btnAdd.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0,
@@ -192,5 +202,8 @@ public class EventList extends JPanel {
 	public JButton getBtnMainMenu() {
 		return btnMainMenu;
 	}
-
+	
+	public JTable getTable() {
+		return table;
+	}	
 }
