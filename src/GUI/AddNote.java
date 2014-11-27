@@ -21,9 +21,11 @@ import javax.swing.JButton;
 import javax.swing.border.MatteBorder;
 
 import java.awt.event.ActionEvent;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.BevelBorder;
 
 public class AddNote extends JPanel {
-	private JTextField textField;
+	private JTextField EventTextField;
 	private JEditorPane Notefield;
 	private JLabel lblBackground;
 	private JLabel lblAddNote;
@@ -31,6 +33,8 @@ public class AddNote extends JPanel {
 	private JLabel lblNote;
 	private JLabel lblEvent;
 	private JButton btnAdd;
+	private JButton btnMainMenu;
+	private JButton btnLogOut;
 	
 	
 	public AddNote() {
@@ -66,12 +70,16 @@ public class AddNote extends JPanel {
         Notefield.setBounds(616, 389, 325, 135);
         add(Notefield);
         
-        textField = new JTextField();
-        textField.setBounds(618, 314, 236, 39);
-        add(textField);
-        textField.setColumns(10);
+        EventTextField = new JTextField();
+        EventTextField.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
+        EventTextField.setBounds(618, 314, 236, 39);
+        add(EventTextField);
+        EventTextField.setColumns(10);
         
-        JButton btnAdd = new JButton("Add");
+        btnAdd = new JButton("Add");
         btnAdd.setOpaque(true);
         btnAdd.setForeground(new Color(0, 0, 205));
         btnAdd.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
@@ -81,6 +89,30 @@ public class AddNote extends JPanel {
 		});
         btnAdd.setBounds(975, 495, 118, 29);
         add(btnAdd);
+        
+        btnMainMenu = new JButton("Main menu");
+        btnMainMenu.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
+        btnMainMenu.setForeground(Color.WHITE);
+        btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
+        btnMainMenu.setContentAreaFilled(false);
+        btnMainMenu.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+        btnMainMenu.setBounds(678, 557, 164, 44);
+        add(btnMainMenu);
+        
+        btnLogOut = new JButton("Log out");
+        btnLogOut.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
+        btnLogOut.setForeground(Color.WHITE);
+        btnLogOut.setFont(new Font("Arial", Font.BOLD, 30));
+        btnLogOut.setContentAreaFilled(false);
+        btnLogOut.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+        btnLogOut.setBounds(701, 600, 117, 43);
+        add(btnLogOut);
         
 		
         JLabel lblBackground = new JLabel("Background");
@@ -95,13 +127,26 @@ public class AddNote extends JPanel {
 	}
 
 	public void addActionListener(ActionListener l) {
+		btnMainMenu.addActionListener(l);
+		btnLogOut.addActionListener(l);
 		btnAdd.addActionListener(l);
 		}
 
 	public JButton getBtnAdd() {
 		return btnAdd;
 	}
-
+	
+	public JButton getBtnMainMenu(){
+		return btnMainMenu;
+	}
+	
+	public JButton getBtnLogOut(){
+		return btnLogOut;
+	}
+	
+	public JTextField getEventTextField(){
+		return EventTextField;
+	}
 	public JEditorPane getNotefield() {
 		return Notefield;
 	}   
