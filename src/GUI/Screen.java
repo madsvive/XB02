@@ -32,7 +32,7 @@ public class Screen extends JFrame {
 	private final EventList eventList = new EventList();
 	private AddEventGUI addEventGUI;
 	private final AddUser addUser = new AddUser();
-
+	private final AddNote addNote = new AddNote();
 
 	public Screen() {
 		setTitle("Doek4life");
@@ -93,5 +93,9 @@ public class Screen extends JFrame {
 	}
 	public AddUser getAddUser() {
 		return addUser;
+	}
+	public AddNote getAddNote() {
+
+		return addNote;
 	}
 }

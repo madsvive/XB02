@@ -33,6 +33,7 @@ public class GUILogic {
 		screen.getEventlist().addActionListener(new EventListActionListener());
 		screen.getAddEventGUI().addActionListener(new AddEventGUIActionListener());
 		screen.getAddUser().addActionListener(new AddUserActionListener());
+		screen.getAddNote().addActionListener(new AddNoteActionListener());
 
 		
 		
@@ -107,8 +108,7 @@ public class GUILogic {
 
 				if (Type.equals("")|| Location.equals("")|| Createdby.equals("")|| start.equals("")|| end.equals("")|| name.equals("")|| text.equals(""))
 				{
-					JOptionPane.showMessageDialog(null, "\nPlease fill out all the fields"
-							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					JOptionPane.showMessageDialog(null, "\nPlease fill out all the fields", "Error message",JOptionPane.PLAIN_MESSAGE);
 				}
 				else
 				{
@@ -128,6 +128,33 @@ public class GUILogic {
 			}
 		}
 	}
+	
+	private class AddNoteActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == screen.getAddNote().getBtnAdd()){
+				String Noteadd = screen.getAddNote().getNotefield().getText();
+			
+			if (Noteadd.equals("")) {
+				JOptionPane.showMessageDialog(null, "\nPlease fill out all the fields"
+						, "Error message",JOptionPane.PLAIN_MESSAGE);
+			}
+			
+			else 
+			{
+				QueryBuilder qb = new QueryBuilder();
+				
+				String kolonner = ("notes");
+				String Notetext = (Values);
+				
+				try {
+					qb.insertInto("notes", kolonner).values(Values).ExecuteQuery();
+					} catch (SQLException e1) {
+					e1.printStackTrace();
+				}
+				
+			}
+		}
+	
 	private class AddUserActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == screen.getAddUser().getBtnLogout()){
@@ -163,9 +190,8 @@ public class GUILogic {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				
 				}
-				
-				
 			}
 		}
 	}
