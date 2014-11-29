@@ -151,15 +151,17 @@ public class GUILogic {
 				else {
 					QueryBuilder qb = new QueryBuilder();
 					String Text = screen.getAddNote().getNotefield().getText();
-					String EventID = screen.getAddNote().getEventTextField().getText();
-// Skal ændres til den nyværende bruger som er logget ind
+					String EventID = screen.getAddNote().getEventTextField()
+							.getText();
+					// Skal ændres til den nyværende bruger som er logget ind
 					String CreatedBy = "Created by";
-					
+
 					String[] kolonner = { "eventid", "createdby", "text" };
-					String[] Values = { Text, CreatedBy, EventID};
+					String[] Values = { Text, CreatedBy, EventID };
 
 					try {
-						qb.insertInto("notes", kolonner).values(Values).ExecuteQuery();
+						qb.insertInto("notes", kolonner).values(Values)
+								.ExecuteQuery();
 					} catch (SQLException e1) {
 						e1.printStackTrace();
 					}
@@ -308,7 +310,7 @@ public class GUILogic {
 						e1.printStackTrace();
 					}
 					if (inputvalue == JOptionPane.NO_OPTION) {
-						
+
 					}
 				}
 			}
