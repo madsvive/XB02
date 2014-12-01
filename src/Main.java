@@ -24,7 +24,6 @@ public class Main {
 		
 		//Runs GUI frame
 		new GUILogic().run();
-		//Runs the TCPServer witch listens for the client
 		new TCPServer();
 
 	}

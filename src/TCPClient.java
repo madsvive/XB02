@@ -29,16 +29,16 @@ public class TCPClient {
 		System.out.println(authUser);
 		System.out.println(gsonString);
 		
-		/*
+
 		CC.setCalendarName("DOEK Kalender");
 		CC.setPublicOrPrivate(1);
 		CC.setUserName("John");
-		String gsonString = gson.toJson(CC);
+		//String gsonString = gson.toJson(CC);//
 		System.out.println(CC);
 		System.out.println(gsonString);
 		
-		Var en del af koden til at starte med.
-		*/
+	
+		
 
 		Socket clientSocket = new Socket("localhost", 8888);
 		DataOutputStream outToServer = new DataOutputStream(
@@ -54,6 +54,7 @@ public class TCPClient {
 		outToServer.flush();
 		BufferedReader inFromServer = new BufferedReader(new InputStreamReader(
 				clientSocket.getInputStream()));
+				
 		modifiedSentence = inFromServer.readLine();
 		System.out.println(modifiedSentence);
 		System.out.println("FROM SERVER: " + modifiedSentence);
@@ -62,5 +63,5 @@ public class TCPClient {
 }
 
 
-// Prøv at sæt det in i ObjectTranslator klassen, for at se om dette kan 
+// Prï¿½v at sï¿½t det in i ObjectTranslator klassen, for at se om dette kan 
 // Skriv billede ind

@@ -139,12 +139,20 @@ public class GUILogic {
 
 	private class AddNoteActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == screen.getAddNote().getBtnLogOut()){
+				screen.show(Screen.LOGIN);
+			}
+			
+			if (e.getSource() == screen.getAddNote().getBtnMainMenu()){
+				screen.show(Screen.MAINMENU);
+			}
 			if (e.getSource() == screen.getAddNote().getBtnAdd()) {
+				
 				String Noteadd = screen.getAddNote().getNotefield().getText();
-
+				System.out.println(Noteadd);
 				if (Noteadd.equals("")) {
 					JOptionPane.showMessageDialog(null,
-							"\nPlease fill out all the fields",
+							"\nPlease fill out all the notefields",
 							"Error message", JOptionPane.PLAIN_MESSAGE);
 				}
 
@@ -159,11 +167,10 @@ public class GUILogic {
 					String[] Values = { Text, CreatedBy, EventID};
 
 					try {
-						qb.insertInto("notes", kolonner).values(Values).ExecuteQuery();
+						qb.insertInto("notes", kolonner).values(Values).Execute();
 					} catch (SQLException e1) {
 						e1.printStackTrace();
 					}
-
 				}
 			}
 		}
@@ -234,6 +241,9 @@ public class GUILogic {
 			}
 			if (e.getSource() == screen.getNoteList().getBtnLogout()) {
 				screen.show(Screen.LOGIN);
+			}
+			if (e.getSource() == screen.getNoteList().getBtnAdd()){
+				screen.show(Screen.ADDNOTE);
 			}
 		}
 	}

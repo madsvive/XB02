@@ -23,8 +23,10 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
 
 import model.QueryBuild.QueryBuilder;
+import java.awt.event.ActionEvent;
 
 public class NoteList extends JPanel {
+	private static final ActionListener Actionlistener = null;
 	private JTable table;
 	private final JLabel lblBackground = new JLabel("");
 	private JLabel lblHeader;
@@ -101,6 +103,10 @@ public class NoteList extends JPanel {
 		add(btnDelete);
 
 		btnAdd = new JButton("Add");
+		btnAdd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnAdd.setOpaque(true);
 		btnAdd.setForeground(new Color(0, 0, 205));
 		btnAdd.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0,
@@ -152,7 +158,10 @@ public class NoteList extends JPanel {
 		btnLogout.addActionListener(l);
 		btnMainMenu.addActionListener(l);
 	}
-
+	
+	public static ActionListener getActionListener(){
+		return Actionlistener;
+	}
 	public JButton getBtnDelete() {
 		return btnDelete;
 	}

@@ -37,7 +37,7 @@ public class MainMenu extends JPanel {
 		
 		btnUserlist = new JButton("Userlist");
 		btnUserlist.setContentAreaFilled(false);
-		btnUserlist_1 = new JButton("User-list");
+		btnUserlist_1 = new JButton("Userlist");
 		btnUserlist_1.setContentAreaFilled(false);
 		btnUserlist_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
