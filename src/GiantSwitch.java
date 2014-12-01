@@ -83,7 +83,7 @@ public class GiantSwitch {
 		case "saveImportedCalendar":
 			SaveImportedCalendar SIC = (SaveImportedCalendar)gson.fromJson(jsonString, SaveimportedCalendar.class);
 			System.out.println(SIC.getCalendarName() + "the new calendar has been saved");
-			answer = SW.SaveImportedCalendar(SIC.getUserName(), SIC.getCalendarName());				
+			answer = SW.SaveImportedCalendar(SIC.getUserName(), SIC.getCalendarName());	
 			break;
 			
 			
@@ -109,23 +109,37 @@ public class GiantSwitch {
 
 			
 		case "getEventInfo":
-			System.out.println("Recieved getEventInfo");
+			GetEventInfo GEI = (GetEventsInfo)gson.fromJson(jsonString, GetEventInfo.class));
+			System.out.println(GE.getCalendarName() + "the new event is now imported");
+			answer = SW.GetEvent(GC.getUserName(), GC.getCalendarName());
 			break;
 			
 		case "deleteEvent":
-			System.out.println("Recieved deleteEvent");
+			DeleteEvent DE = (DeleteEvent)gson.fromJson(jsonString, DeleteEvent.class);
+			System.out.println(DC.getCalendarName()+ "has now been deleted from the class");
+			answer = SW.deleteCalendar(DC.getUserName(), DC.getCalendarName()); 
+			break;
+			
 		
 		case "saveNote":
-			System.out.println("Recieved saveNote");
+			SaveNote SN = (SaveNote)gson.fromJson(jsonString, SaveNote.class);
+			System.out.println(SIC.getCalendarName() + "the note has been saved");
+			answer = SW.SaveImportedCalendar(SIC.getUserName(), SIC.getCalendarName());				
 			break;
+			
 
 		case "getNote":
-			System.out.println("Recieved getNote");
+			GetCalendar GC = (GetCalendar)gson.fromJson(jsonString, GetCalendar.class);
+			System.out.println(GC.getCalendarName() + "the new note is now imported");
+			answer = SW.GetCalendar(GC.getUserName(), GC.getCalendarName());
 			break;
 			
 		case "deleteNote":
-			System.out.println("Recieved deleteNote");
+			DeleteCalendar DC = (DeleteCalendar)gson.fromJson(jsonString, DeleteCalendar.class);
+			System.out.println(GC.getCalendarName() + "the note is now deleted");
+			answer = SW.GetCalendar(GC.getUserName(), GC.getCalendarName());
 			break;
+			
 
 		/**********
 		 ** QUOTE **
