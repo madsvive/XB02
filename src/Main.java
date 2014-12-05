@@ -16,6 +16,7 @@ public class Main {
 		//Creates the database if not exists 
 		new DatabaseInit().go();
 		
+		//Prints database information
 		System.out.println(cf.getPassword());
 		System.out.println(cf.getHost());
 		System.out.println(cf.getPort());

@@ -93,7 +93,10 @@ public class GiantSwitch {
 			answer = SW.GetCalendar(GC.getUserName(), GC.getCalendarName());
 			break;
 			
-
+			/*************
+			 ** EVENT **
+			 *************/
+			
 		case "getEvents":
 			GetEvents GE = (GetEvents)gson.fromJson(jsonString, GetEvent.class);
 			System.out.println(GE.getCalendarName() + "the new event is now imported");
@@ -120,7 +123,10 @@ public class GiantSwitch {
 			answer = SW.deleteCalendar(DC.getUserName(), DC.getCalendarName()); 
 			break;
 			
-		
+			/*************
+			 ** Note **
+			 *************/		
+			
 		case "saveNote":
 			SaveNote SN = (SaveNote)gson.fromJson(jsonString, SaveNote.class);
 			System.out.println(SIC.getCalendarName() + "the note has been saved");
