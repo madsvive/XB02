@@ -5,6 +5,7 @@ import model.QOTD.QOTDModel;
 import model.calendar.Event;
 import model.calendar.GetCalendarData;
 import model.note.Note;
+import GUI.AddUser;
 import JsonClasses.AuthUser;
 import JsonClasses.CalendarInfo;
 import JsonClasses.CreateCalendar;
@@ -21,7 +22,7 @@ public class GiantSwitch {
 	public String GiantSwitchMethod(String jsonString) throws SQLException {
 
 		//Events eventsKlasse = new Events(0, 0, 0, jsonString, jsonString, jsonString, jsonString, jsonString);
-
+		System.out.println(jsonString);
 		Note noteKlasse = new Note();
 		//ForecastModel forecastKlasse = new ForecastModel();
 		QOTDModel QOTDKlasse = new QOTDModel();

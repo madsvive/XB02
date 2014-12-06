@@ -3,14 +3,16 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
 
+import model.user.encryptionAES;
+
 
 public class ClientWorker implements  Runnable{
 	private Socket connectionSocketConected;
 	private CalendarInfo CI = new CalendarInfo();
 	private GiantSwitch GS = new GiantSwitch();
-	private encryption cryp = new encryption();
+	private encryptionAES cryp = new encryptionAES();
 	private String incomingJson;
-	
+	private String inFromServer;
 	ClientWorker(Socket connectionSocket){
 		this.connectionSocketConected = connectionSocket;
 	}
@@ -19,29 +21,37 @@ public class ClientWorker implements  Runnable{
 		try{
 			System.out.println("forbindelse Oprettet!");
 			//BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
-			byte[] b = new byte[500000];
-			int count = connectionSocketConected.getInputStream().read(b);
-			ByteArrayInputStream bais = new ByteArrayInputStream(b);
-			DataInputStream inFromClient = new DataInputStream(connectionSocketConected.getInputStream());		
-			//Creates an object of the data which is to be send back to the client, via the connectionSocket
+
+//			byte[] b = new byte[500000];
+//			int count = connectionSocketConected.getInputStream().read(b);
+//			ByteArrayInputStream bais = new ByteArrayInputStream(b);
+//			DataInputStream inFromClient = new DataInputStream(connectionSocketConected.getInputStream());		
+//			//Creates an object of the data which is to be send back to the client, via the connectionSocket
 			DataOutputStream outToClient = new DataOutputStream(connectionSocketConected.getOutputStream());
+			
+			
+			String inFromClient = new DataInputStream(connectionSocketConected.getInputStream()).toString();
+			String decrypted = encryptionAES.decrypt(inFromClient);
+
+			
 			System.out.println("Outtoclient oprettet!");
 			//Sets client sentence equals input from client
 			//incomingJson = inFromClient.readLine();			
 			
-			String ny = cryp.decrypt(b);
-			
+//			String ny = cryp.decrypt(b);
+//			System.out.println(b);
 			//cryp.StringEncryption(inFromClient.readLine());
 			System.out.println("Besked modtaget!");
 			//Sysout recieved message
-			System.out.println("Received: " + ny);
-			String returnSvar = GS.GiantSwitchMethod(ny);		
+			System.out.println("Received: " + decrypted);
+			String returnSvar = GS.GiantSwitchMethod(decrypted);		
 			//Sends the capitalized message back to client!!
 			outToClient.writeBytes(returnSvar + "\n");
 			System.out.println("svar sendt");
 			//BufferedWriter writer = new BufferedWriter(arg0)
 		}catch(Exception exception){
 			System.err.print(exception);
+			exception.printStackTrace();
 		}
 	}
 

@@ -4,9 +4,9 @@ public class AuthUser implements java.io.Serializable
 {
 	private  final long serialVersionUID = 2L;
 	private String overallID = "logIn";
-	private String email;
-	private String password;
-	private boolean isAdmin;
+	private String email ="";
+	private String password ="";
+	private boolean IsAdmin; 
 	
 	//Getters and setters for everything, bitch
 	public String getOverallID() {
@@ -24,14 +24,14 @@ public class AuthUser implements java.io.Serializable
 	public String getAuthUserPassword() {
 		return password;
 	}
-	public void setAuthUserPassword(String userName) {
+	public void setAuthUserPassword(String password) {
 		this.password = password;
 	}
 	public boolean getAuthUserIsAdmin() {
-		return isAdmin;
+		return IsAdmin;
 	}
 	public void setAuthUserIsAdmin(boolean isAdmin) {
-		this.isAdmin = isAdmin;
+		this.IsAdmin = isAdmin;
 	}
 
 }
