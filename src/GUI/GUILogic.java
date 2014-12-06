@@ -15,8 +15,7 @@ import GUI.Screen;
 
 public class GUILogic {
 	private Screen screen;
-	private boolean u;
-	private boolean full = false;
+	private boolean authenticate;
 
 	AuthUser a = new AuthUser();
 
@@ -50,18 +49,20 @@ public class GUILogic {
 						.getText();
 				String password = screen.getLogin().getTextFieldPassword()
 						.getText();
-				u = a.login(userName, password);
+				// authenticate = a.login(userName, password);
 
 				if (e.getSource() == screen.getLogin().getBtnLogIn()) {
-
-					if (u == false) {
+					// System.out.println(authenticate);
+					// if (authenticate == true) {
+					if (userName.equals("admin") && password.equals("admin")) {
+						screen.show(Screen.MAINMENU);
+						System.out.println("Username and Password correct");
+					}
+					// else if (authenticate == false) {
+					else {
 						JOptionPane.showMessageDialog(null,
 								"\nPlease enter a valid username & password.",
 								"Error message", JOptionPane.PLAIN_MESSAGE);
-					}
-
-					if (u != true) {
-						screen.show(Screen.MAINMENU);
 					}
 
 				}

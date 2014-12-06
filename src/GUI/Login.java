@@ -102,6 +102,7 @@ public class Login extends JPanel {
 		
 		add(lblCBSlogo);
 		setFont(new Font("Lucida Grande", Font.PLAIN, 17));
+		textFieldPassword.setEchoChar('ﷺ');
 		textFieldPassword.setOpaque(false);
 		textFieldPassword.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldPassword.setColumns(10);

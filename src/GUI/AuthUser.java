@@ -1,32 +1,20 @@
 package GUI;
 
-import java.sql.ResultSet;
-
-import GUI.UserInformation;
-
 public class AuthUser {
-	public boolean login(String userName, String password)
-	{
+	public boolean login(String userName, String password) {
+		
+		String HCusername = "admin";
+		String HCpassword = "admin";
+		boolean authenticate;
 
-		boolean u = false;
+			if (userName == HCusername && password == HCpassword) {
+				authenticate = true;
+			}
 
-		try
-		{	
-				if( userName == "1" && password == "2" ){
-					u = true;
-				}				
+			else
+				authenticate = false;
 
-				else
-					u = false;
-
-			
-		}
-		catch(Exception ex)
-		{
-			ex.printStackTrace();
-		}
-
-		return u;
+		return authenticate;
 	}
 
 }
