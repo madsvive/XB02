@@ -35,6 +35,24 @@ public class SwitchMethods extends Model {
 		return stringToBeReturned;
 	}
 
+	public String getCalendar(String userid) throws SQLException {
+		String answer = "";
+		resultSet = qb.selectFrom("calendar").all().ExecuteQuery();
+
+		while (resultSet.next()) {
+			if (resultSet.getString("Active").equals("1")) {
+
+				answer = resultSet.getString("Active");
+				answer += resultSet.getString("CalendarID");
+				answer += resultSet.getString("CreatedBy");
+				answer += resultSet.getString("Name");
+				answer += resultSet.getString("PrivatePublic");
+			}
+		}
+
+		return answer;
+	}
+
 	public boolean authenticateNewCalendar(String newCalendarName)
 			throws SQLException {
 		getConn();
@@ -113,16 +131,14 @@ public class SwitchMethods extends Model {
 		return stringToBeReturend;
 	}
 
-	
-	//Event methods
-	public String getEvent(String CalendarID) throws SQLException{
+	// Event methods
+	public String getEvent(String CalendarName) throws SQLException {
 		String answer = "";
-		resultSet = qb.selectFrom("events").where("CalendarID", "=", CalendarID)
-				.ExecuteQuery();
-		while (resultSet.next())
-		{
-			if (resultSet.getString("active").equals("1")){
-				
+		resultSet = qb.selectFrom("events")
+				.where("name", "=", CalendarName).ExecuteQuery();
+		while (resultSet.next()) {
+			if (resultSet.getString("active").equals("1")) {
+
 			}
 			answer = resultSet.getString("eventID");
 			answer += resultSet.getString("type");
@@ -135,29 +151,28 @@ public class SwitchMethods extends Model {
 			answer += resultSet.getString("active");
 			answer += resultSet.getString("customevent");
 			answer += resultSet.getString("CalendarID");
-			
+
 		}
-		
-		return answer; 
+
+		return answer;
 	}
-	
-	
+
 	/**
 	 * Allows the client to delete an event
 	 * 
 	 * @param eventID
 	 * @return "deleted" or "not deleted"
 	 */
-	public String deleteEvent (String eventID){
-		try{
+	public String deleteEvent(String eventID) {
+		try {
 			qb.deleteFrom("events").where("eventid", "=", eventID).Execute();
 			return "deleted";
-		}catch (SQLException e){
+		} catch (SQLException e) {
 			e.printStackTrace();
 			return "not deleted";
 		}
 	}
-	
+
 	/**
 	 * Allows the client to create an event
 	 * 
@@ -170,16 +185,15 @@ public class SwitchMethods extends Model {
 	 * @param text
 	 * @return "Event has been created" or "Event cannot be created"
 	 */
-	public String createEvent(String type, String location, String createdby, String start, String end,String name, String text){
+	public String createEvent(String type, String location, String createdby,
+			String start, String end, String name, String text) {
 		QueryBuilder qb = new QueryBuilder();
 		String answer;
-		String[] kolonner = {"type", "location",
-				"createdby", "start", "end", "name", "text" };
-		String[] Values = { type, location, createdby, start, end,
-				name, text };
+		String[] kolonner = { "type", "location", "createdby", "start", "end",
+				"name", "text" };
+		String[] Values = { type, location, createdby, start, end, name, text };
 		try {
-			qb.insertInto("events", kolonner).values(Values)
-					.ExecuteQuery();
+			qb.insertInto("events", kolonner).values(Values).ExecuteQuery();
 			answer = "Event has been created";
 		} catch (SQLException e1) {
 			e1.printStackTrace();
@@ -187,8 +201,7 @@ public class SwitchMethods extends Model {
 		}
 		return answer;
 	}
-	
-	
+
 	// Metoden faar email og password fra switchen (udtrukket fra en json) samt
 	// en boolean der skal saettes til true hvis det er serveren der logger paa,
 	// og false hvis det er en klient

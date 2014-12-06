@@ -81,16 +81,15 @@ public class GiantSwitch {
 			break;
 		
 		case "saveImportedCalendar":
-			SaveImportedCalendar SIC = (SaveImportedCalendar)gson.fromJson(jsonString, SaveimportedCalendar.class);
-			System.out.println(SIC.getCalendarName() + "the new calendar has been saved");
-			answer = SW.SaveImportedCalendar(SIC.getUserName(), SIC.getCalendarName());	
+			//Hvad skal vi bruge den til?
+			
 			break;
 			
 			
 		case "getCalendar":
-			GetCalendar GC = (GetCalendar)gson.fromJson(jsonString, GetCalendar.class);
-			System.out.println(GC.getCalendarName() + "the new calendar is now imported");
-			answer = SW.GetCalendar(GC.getUserName(), GC.getCalendarName());
+			//Gets the calendar data from calendars with the current userid
+			AuthUser AU2 = (AuthUser)gson.fromJson(jsonString, AuthUser.class);
+			answer = SW.getCalendar(AU2.getAuthUserEmail());
 			break;
 			
 			/*************
@@ -98,29 +97,22 @@ public class GiantSwitch {
 			 *************/
 			
 		case "getEvents":
-			GetEvents GE = (GetEvents)gson.fromJson(jsonString, GetEvent.class);
-			System.out.println(GE.getCalendarName() + "the new event is now imported");
-			answer = SW.GetEvent(GC.getUserName(), GC.getCalendarName());
+			CalendarInfo CI = (CalendarInfo)gson.fromJson(jsonString, CalendarInfo.class);
+			answer = SW.getEvent(CI.getCalenderName());
 			break;
 			
 
 		case "createEvent":
-			CreateEvent CE = (CreateEvent)gson.fromJson(jsonString, CreateEvent.class)
-			System.out.println(CE.getCalendarName()+ "has now been added to the class");
-			answer = SW.createNewCalendar(CE.getUserName(), CE.getCalendarName(), CC.getPublicOrPrivate());
+			
 			break;
 
 			
 		case "getEventInfo":
-			GetEventInfo GEI = (GetEventsInfo)gson.fromJson(jsonString, GetEventInfo.class));
-			System.out.println(GE.getCalendarName() + "the new event is now imported");
-			answer = SW.GetEvent(GC.getUserName(), GC.getCalendarName());
+			
 			break;
 			
 		case "deleteEvent":
-			DeleteEvent DE = (DeleteEvent)gson.fromJson(jsonString, DeleteEvent.class);
-			System.out.println(DC.getCalendarName()+ "has now been deleted from the class");
-			answer = SW.deleteCalendar(DC.getUserName(), DC.getCalendarName()); 
+			
 			break;
 			
 			/*************
@@ -128,22 +120,16 @@ public class GiantSwitch {
 			 *************/		
 			
 		case "saveNote":
-			SaveNote SN = (SaveNote)gson.fromJson(jsonString, SaveNote.class);
-			System.out.println(SIC.getCalendarName() + "the note has been saved");
-			answer = SW.SaveImportedCalendar(SIC.getUserName(), SIC.getCalendarName());				
+					
 			break;
 			
 
 		case "getNote":
-			GetCalendar GC = (GetCalendar)gson.fromJson(jsonString, GetCalendar.class);
-			System.out.println(GC.getCalendarName() + "the new note is now imported");
-			answer = SW.GetCalendar(GC.getUserName(), GC.getCalendarName());
+		
 			break;
 			
 		case "deleteNote":
-			DeleteCalendar DC = (DeleteCalendar)gson.fromJson(jsonString, DeleteCalendar.class);
-			System.out.println(GC.getCalendarName() + "the note is now deleted");
-			answer = SW.GetCalendar(GC.getUserName(), GC.getCalendarName());
+			
 			break;
 			
 
