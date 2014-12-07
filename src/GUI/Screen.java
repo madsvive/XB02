@@ -2,7 +2,6 @@ package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -21,9 +20,10 @@ public class Screen extends JFrame {
 	public static final String EVENTLIST = "name_534038022095149";
 	public static final String ADDEVENTGUI = "name_6308445225625";
 	public static final String ADDUSER = "name_10334207821613";
+	public static final String CALENDAR = "name_calendar";
 	
 	private JPanel contentPane;
-	private final LogIn login = new LogIn();
+	private final LogIn logIn = new LogIn();
 	private final MainMenu mainMenu = new MainMenu();
 	private final UserInfo userInfo = new UserInfo();
 	private final NoteList noteList = new NoteList();
@@ -33,6 +33,7 @@ public class Screen extends JFrame {
 	private AddEventGUI addEventGUI;
 	private final AddUser addUser = new AddUser();
 	private final AddNote addNote = new AddNote();
+	private final Calendar calendar = new Calendar();
 
 	public Screen() {
 		setTitle("Doek4life");
@@ -48,10 +49,8 @@ public class Screen extends JFrame {
 		
 		addEventGUI = new AddEventGUI();
 		contentPane.add(addEventGUI, "name_6308445225625");
-		login.getBtnLogIn().setContentAreaFilled(false);
-		login.getBtnForgotLogIn().setContentAreaFilled(false);
 		
-		contentPane.add(login, "name_276091497157488");
+		contentPane.add(logIn, "name_276091497157488");
 		
 		contentPane.add(mainMenu, "name_276416022878030");
 		
@@ -62,11 +61,12 @@ public class Screen extends JFrame {
 		contentPane.add(eventList, "name_534038022095149");
 		
 		contentPane.add(userlist, "name_280161954000083");
+		contentPane.add(calendar, "name_calendar");
 		c = (CardLayout) getContentPane().getLayout();
 	}
 	
-	public LogIn getLogin() {
-		return login;
+	public LogIn getLogIn() {
+		return logIn;
 	}
 	
 	public MainMenu getMainMenu() {
@@ -97,5 +97,8 @@ public class Screen extends JFrame {
 	public AddNote getAddNote() {
 
 		return addNote;
+	}
+	public Calendar getCalendar(){
+		return calendar;
 	}
 }

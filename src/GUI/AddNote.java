@@ -48,7 +48,7 @@ public class AddNote extends JPanel {
         add(lblAddNote);
         
         JLabel lblCBSlogo = new JLabel("");
-        lblCBSlogo.setIcon(new ImageIcon(UserList.class.getResource("/Images/CBSLogo3.png")));
+        lblCBSlogo.setIcon(new ImageIcon(Calendar.class.getResource("/Images/CBSLogo3.png")));
         lblCBSlogo.setBounds(36, 695, 223, 67);
         add(lblCBSlogo);
         
@@ -116,7 +116,7 @@ public class AddNote extends JPanel {
         
 		
         JLabel lblBackground = new JLabel("Background");
-        lblBackground.setIcon(new ImageIcon(UserList.class.getResource("/Images/MetalBackground.jpg")));
+        lblBackground.setIcon(new ImageIcon(Calendar.class.getResource("/Images/MetalBackground.jpg")));
         lblBackground.setBackground(new Color(245, 245, 245));
         lblBackground.setForeground(new Color(245, 255, 250));
         lblBackground.setOpaque(true);

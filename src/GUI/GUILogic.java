@@ -22,7 +22,7 @@ public class GUILogic {
 	public GUILogic() {
 		screen = new Screen();
 
-		screen.getLogin().addActionListener(new LoginActionListener());
+		screen.getLogIn().addActionListener(new LoginActionListener());
 		screen.getMainMenu().addActionListener(new MainMenuActionListener());
 		screen.getUserInfo().addActionListener(new UserInfoActionListener());
 		screen.getNoteList().addActionListener(new NoteListActionListener());
@@ -32,6 +32,7 @@ public class GUILogic {
 				new AddEventGUIActionListener());
 		screen.getAddUser().addActionListener(new AddUserActionListener());
 		screen.getAddNote().addActionListener(new AddNoteActionListener());
+		screen.getCalendar().addActionListener(new CalendarActionListener());
 
 	}
 
@@ -45,13 +46,13 @@ public class GUILogic {
 		public void actionPerformed(ActionEvent e) {
 			try {
 
-				String userName = screen.getLogin().getTextFieldUsername()
+				String userName = screen.getLogIn().getTextFieldUsername()
 						.getText();
-				String password = screen.getLogin().getTextFieldPassword()
+				String password = screen.getLogIn().getTextFieldPassword()
 						.getText();
 				// authenticate = a.login(userName, password);
 
-				if (e.getSource() == screen.getLogin().getBtnLogIn()) {
+				if (e.getSource() == screen.getLogIn().getBtnLogIn()) {
 					// System.out.println(authenticate);
 					// if (authenticate == true) {
 					if (userName.equals("admin") && password.equals("admin")) {
@@ -85,7 +86,9 @@ public class GUILogic {
 			if (e.getSource() == screen.getMainMenu().getBtnEventlist()) {
 				screen.show(Screen.EVENTLIST);
 			}
-
+			if (e.getSource() == screen.getMainMenu().getBtnCalendar()){
+				screen.show(Screen.CALENDAR);
+			}
 		}
 	}
 
@@ -228,7 +231,47 @@ public class GUILogic {
 			}
 		}
 	}
+	
+	private class CalendarActionListener implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == screen.getCalendar().getBtnMainMenu()){
+				screen.show(Screen.MAINMENU);
+			}
+			if (e.getSource() == screen.getCalendar().getBtnLogout()){
+				screen.show(Screen.LOGIN);
+			}
+			if (e.getSource() == screen.getCalendar().getBtnDelete()){
+				QueryBuilder qb = new QueryBuilder();
+				String idDelete = (String) screen
+						.getCalendar()
+						.getTable()
+						.getValueAt(
+								screen.getCalendar().getTable()
+										.getSelectedRow(), 1);
+				int inputvalue = JOptionPane.YES_NO_OPTION;
+				JOptionPane.showConfirmDialog(null,
+						"Are you sure you want to delete?" + idDelete,
+						"WARNING", inputvalue);
+				if (inputvalue == JOptionPane.YES_OPTION) {
+					try {
+						qb.deleteFrom("calendar").where("CalendarID", "=", idDelete)
+								.Execute();
+						System.out.println("Event deleted with EventID "
+								+ idDelete);
+					} catch (SQLException e1) {
+						System.out.println("Event not deleted");
+						e1.printStackTrace();
+					}
+					if (inputvalue == JOptionPane.NO_OPTION) {
 
+					}
+				}
+			}
+			if (e.getSource() == screen.getCalendar().getButtontAdd()){
+				
+			}
+		}
+	}
 	private class NoteListActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
