@@ -2,9 +2,6 @@ package model.calendar;
 
 import java.security.MessageDigest;
 
-/**
- * Created by jesperbruun on 23/09/14.
- */
 
 public class EncryptUserID {
 
@@ -13,7 +10,7 @@ public class EncryptUserID {
      * http://www.miraclesalad.com/webtools/md5.php - Du kan her saette userid foerst og derefter hashkey for at teste
      */
     private static final String HASHKEY = "v.eRyzeKretW0r_t";
-    private static String userId = "caha13ag";
+    private static String userId = "akgu13ab";
     private String key;
     private static MessageDigest digester;
 
@@ -53,7 +50,7 @@ public class EncryptUserID {
     }
 
 	public String getKey() {
-		return key;
+		return crypt("akgu13ab" +HASHKEY);
 	}
     
 }

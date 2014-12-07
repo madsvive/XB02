@@ -10,7 +10,6 @@ import java.util.Date;
 import model.QueryBuild.QueryBuilder;
 
 /**
- * Created by jesperbruun on 10/10/14.
  * Den laver selve arrayet af alle generede Event
  */
 public class Events {

@@ -23,7 +23,7 @@ public class Screen extends JFrame {
 	public static final String ADDUSER = "name_10334207821613";
 	
 	private JPanel contentPane;
-	private final Login login = new Login();
+	private final LogIn login = new LogIn();
 	private final MainMenu mainMenu = new MainMenu();
 	private final UserInfo userInfo = new UserInfo();
 	private final NoteList noteList = new NoteList();
@@ -65,7 +65,7 @@ public class Screen extends JFrame {
 		c = (CardLayout) getContentPane().getLayout();
 	}
 	
-	public Login getLogin() {
+	public LogIn getLogin() {
 		return login;
 	}
 	
