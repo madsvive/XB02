@@ -40,30 +40,7 @@ public class ClientWorker implements Runnable {
 			// Sends the capitalized message back to client!!
 			outToClient.writeBytes(returnSvar + "\n");
 			System.out.println("svar sendt");
-			// BufferedWriter writer = new BufferedWriter(arg0)
-
-			// System.out.println("forbindelse Oprettet!");
-			// // BufferedReader inFromClient = new BufferedReader(new
-			// // InputStreamReader(connectionSocket.getInputStream()));
-			//
-			// byte[] b = new byte[500000];
-			// int count = connectionSocketConected.getInputStream().read(b);
-			// ByteArrayInputStream bais = new ByteArrayInputStream(b);
-			// ObjectInputStream inFromClient = new
-			// ObjectInputStream(connectionSocketConected.getInputStream());
-			// ObjectOutputStream outToClient = new
-			// ObjectOutputStream(connectionSocketConected.getOutputStream());
-			//
-			// // String ny = crypt.decrypt(b);
-			// System.out.println(b);
-			// String ny = b.toString();
-			// System.out.println("Received: " + ny);
-			// String returnSvar = GS.GiantSwitchMethod(ny);
-			// // Sends the capitalized message back to client!!
-			// outToClient.writeBytes(returnSvar + "\n");
-			// System.out.println("svar sendt");
-			// // BufferedWriter writer = new BufferedWriter(arg0)
-
+			
 		} catch (Exception exception) {
 			System.err.print(exception);
 			exception.printStackTrace();
