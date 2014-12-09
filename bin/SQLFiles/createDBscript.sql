@@ -99,17 +99,15 @@ CREATE TABLE IF NOT EXISTS users
 
 /* Create Dummy Account */
 
-INSERT INTO `cbscalendar`.`users`
-(`email`,
-`active`,
-`password`)
-VALUES
-("admin@admin.dk",
-true,
-"d6YSr320JnLXlp8YYxUcNQ==");
+INSERT INTO `cbscalendar`.`users`(`email`,`active`,`password`)VALUES("admin@admin.dk",true,"d6YSr320JnLXlp8YYxUcNQ==");
+INSERT INTO `cbscalendar`.`users`(`email`,`active`,`password`)VALUES("mavi13ae@student.cbs.dk",true,"d6YSr320JnLXlp8YYxUcNQ==");
+INSERT INTO `cbscalendar`.`users`(`email`,`active`,`password`)VALUES("akgu13ab@student.cbs.dk",true,"d6YSr320JnLXlp8YYxUcNQ==");
 
+INSERT INTO `cbscalendar`.`calendar`(`Name`,`Active`,`CreatedBy`,`PrivatePublic`)VALUES("Skole",1,"mavi13ae@student.cbs.dk",1);
+INSERT INTO `cbscalendar`.`calendar`(`Name`,`Active`,`CreatedBy`,`PrivatePublic`)VALUES("Familie",1,"akgu13ab@student.cbs.dk",1);
 
-
+INSERT INTO `cbscalendar`.`events`(`CalendarID`,`type`,`start`,`end`,`name`,`text`)VALUES("1","1","2013-02-09","2014-02-09","Julefrokost","Juhuu Mad");
+INSERT INTO `cbscalendar`.`events`(`CalendarID`,`type`,`start`,`end`,`name`,`text`)VALUES("1","1","2013-02-09","2014-02-09","Fødselsdag","Hip Hura");
 /* Create Foreign Keys */
 
 ALTER TABLE events
